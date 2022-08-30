@@ -1,0 +1,31 @@
+openapi: 3.0.0
+
+info:
+    title: Todo API
+    description: This is a documentation where you can test todo api's endpoints
+    version: 1.0.1
+
+servers:
+    - url: http://localhost:4000/api/v1
+      description: This url is for development on localhost.
+    - url: http
+paths:
+    /:
+        get:
+            tags:
+                - Home Route
+            summary: Returns array of items
+            responses:
+                200:
+                    description: SUCCESS
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    success:
+                                        type: boolean
+                                    title:
+                                        type: string
+                                    createdAt:
+                                        type: string

@@ -19,7 +19,13 @@ exports.postItem = BigPromise(async (req, res, next) => {
         return next(new CustomError("Please Provide a title to submit", 400));
     }
 
-    const response = await Todo.create({ title, description });
+    const postObject = {
+        success: true,
+        title,
+        description,
+    };
+
+    const response = await Todo.create(postObject);
 
     res.status(201).send(response);
 });
